@@ -32,14 +32,23 @@
   //========================================
   //Data Verification ======================
   if (gps_attached) {
+    Serial.println("GPS attached");
     readGPS();
   }
   if (atm) {
+    Serial.println("atm attached");
     readATM();
   }
 
   if(lux_attached) {
+    Serial.println("lux attached");
     readLux();
   }
   
+}
+
+ void updateSensors() {
+    readGPS();
+    readATM();
+    readLux();
 }

@@ -57,8 +57,8 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  updateSensors();
   String data = mkdata();
   Serial.println(data);
   writeSD(data);
-  delay(100);
 }
