@@ -9,6 +9,7 @@
   if (!sd) {
     if (SD.begin(chipSelect)) {
       sd = true;
+      Serial.println("sd card began");
     }
   }
 
@@ -43,6 +44,13 @@
   if(lux_attached) {
     Serial.println("lux attached");
     readLux();
+  }
+
+  if(sd) {
+    Serial.println("sd attached");
+    String data = mkdata();
+    Serial.println(data);
+    writeSD(data);
   }
   
 }
